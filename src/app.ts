@@ -52,7 +52,7 @@ app.get('/fun', async (_req : Request, res: Response) => {
 
     res.json({ 
 
-    message: "this is fun", 
+    message: "this is fun - really ???", 
 
     }); 
 
