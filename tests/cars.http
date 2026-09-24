@@ -1,6 +1,7 @@
 @endpoint = http://localhost:3000/api/v1/cars
 
 ###
+# @name postACar
 POST {{endpoint}} HTTP/1.1
 content-type: application/json
 
@@ -9,9 +10,11 @@ content-type: application/json
    "model": "A4"
 }
 
-
 ###
-GET  {{endpoint}} HTTP/3.0
+
+@newCar = {{postACar.response.body._id}}
+###
+GET  {{endpoint}}/{{newCar}} HTTP/3.0
 content-type: application/json
 
 ###
@@ -22,7 +25,7 @@ content-type: application/json
 
 ###
 
-DELETE  {{endpoint}}/6ab39e3478e96cf481b20de1 HTTP/3.0
+DELETE  {{endpoint}}/sillycarID HTTP/3.0
 content-type: application/json
 
 ###
