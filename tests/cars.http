@@ -22,7 +22,7 @@ content-type: application/json
 
 ###
 
-DELETE  {{endpoint}}/sillycarID HTTP/3.0
+DELETE  {{endpoint}}/6ab39e3478e96cf481b20de1 HTTP/3.0
 content-type: application/json
 
 ###
