@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from "express";
 import carRoutes from './routes/cars';
 import { env } from "./config/env";
 import { connectDB } from "./config/database";
-import {authenticateKey} from './middleware/auth.middleware';
+import { loggingMiddleware } from './middleware/logging.middleware';
 
 const PORT = env.port
 
@@ -10,21 +10,13 @@ const PORT = env.port
 
 const app: Application = express();
 
-
-app.use((req, _res, next) => {
-
-     console.log(`${req.method} ${req.originalUrl}`);
-
-     next();
-
-});
-
+app.use(loggingMiddleware);
 
 
 app.use(express.json());
 
 
-app.use('/api/v1/cars', authenticateKey, carRoutes);
+app.use('/api/v1/cars', carRoutes);
 
 app.get("/ping", async (_req: Request, res: Response) => {
      res.json({

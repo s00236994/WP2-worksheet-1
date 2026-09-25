@@ -4,17 +4,19 @@
 # @name postACar
 POST {{endpoint}} HTTP/1.1
 content-type: application/json
+x-api-key: blahblah
+
 
 {
-  "make": "Toyota",
-   "model": "Corrola"
+  "make": "BMW",
+   "model": "M5"
 }
 
 ###
-
 @newCar = {{postACar.response.body._id}}
+
 ###
-GET http://localhost:3000/api/v1/cars HTTP/3.0
+GET {{endpoint}}/{{newCar}} HTTP/1.1
 content-type: application/json
 x-api-key: blahblah
 
@@ -26,11 +28,26 @@ content-type: application/json
 
 ###
 
-DELETE  {{endpoint}}/6ab543d6fd2cdcaad5c77a38 HTTP/3.0
+DELETE  {{endpoint}}/6ab66fadff930eb9e04ca664 HTTP/3.0
 content-type: application/json
 
 ###
 
 PUT  {{endpoint}}/sillycarID HTTP/3.0
 content-type: application/json
+
+
+
+
+### GET all cars - No API key
+
+GET {{endpoint}} HTTP/1.1
+content-type: application/json
+
+
+### GET all cars - With API key
+
+GET {{endpoint}} HTTP/1.1
+content-type: application/json
+x-api-key: blahblah
 
