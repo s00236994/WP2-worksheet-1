@@ -8,11 +8,12 @@ x-api-key: blahblah
 
 
 {
-  "make": "BMW",
-   "model": "M5",
-   "year": 1997
+  "make": "Ford",
+   "model": "Focus",
+   "year": 2020
    
 }
+
 
 ###
 @newCar = {{postACar.response.body._id}}
@@ -21,6 +22,8 @@ x-api-key: blahblah
 GET {{endpoint}}/{{newCar}} HTTP/1.1
 content-type: application/json
 x-api-key: blahblah
+
+
 
 
 ###
@@ -35,8 +38,34 @@ content-type: application/json
 
 ###
 
-PUT  {{endpoint}}/6abcd914023fd9a16bacdf5d HTTP/3.0
+### Valid update – expect 200
+PUT {{endpoint}}/{{newCar}} HTTP/1.1
 content-type: application/json
+
+{
+  "make": "Ford",
+  "model": "Fiesta",
+  "year": 2019
+}
+
+### Empty make – expect 400
+PUT {{endpoint}}/{{newCar}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "",
+  "model": "Focus"
+}
+
+### Year too old – expect 400
+PUT {{endpoint}}/{{newCar}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "BMW",
+  "model": "M3",
+  "year": 1900
+}
 
 
 
