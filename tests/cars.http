@@ -8,9 +8,9 @@ x-api-key: blahblah
 
 
 {
-  "make": "Ford",
-   "model": "Focus",
-   "year": 2020
+  "make": "Hyundai",
+   "model": "IX35",
+   "year": 2013
    
 }
 
@@ -33,7 +33,7 @@ content-type: application/json
 
 ###
 
-DELETE  {{endpoint}}/6ab66fadff930eb9e04ca664 HTTP/3.0
+DELETE  {{endpoint}}/6abe80635adf8b30dc66e092 HTTP/3.0
 content-type: application/json
 
 ###
