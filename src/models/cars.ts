@@ -24,6 +24,27 @@ export const createCarZSchema = z.object({
   year: z.number().min(1950).optional(),
 });
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     CreateCarInput:
+ *       type: object
+ *       required:
+ *         - make
+ *         - model
+ *       properties:
+ *         make:
+ *           type: string
+ *           example: Renault
+ *         model:
+ *           type: string
+ *           example: Megane
+ *         year:
+ *           type: integer
+ *           example: 2010
+ */
+
 export const updateCarZSchema = z.object({
   make: z.string().min(1),
   model: z.string().min(1),
