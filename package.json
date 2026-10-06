@@ -17,13 +17,17 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^22.20.3",
+    "@types/swagger-jsdoc": "^6.0.4",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   },
   "dependencies": {
+    "@types/swagger-ui-express": "^4.1.8",
     "dotenv": "^18.0.3",
     "express": "^5.2.1",
     "mongoose": "^9.10.2",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1",
     "zod": "^4.6.5"
   }
 }
