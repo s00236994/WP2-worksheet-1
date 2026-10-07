@@ -4,7 +4,7 @@ import { connectDB } from "./config/database";
 
 const port = env.port;
 
-const startServer = async () => {
+ const startServer = async () => {
   await connectDB();
 
   app.listen(port, (error) => {

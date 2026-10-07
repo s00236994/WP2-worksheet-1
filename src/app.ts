@@ -25,7 +25,7 @@ app.use('/api/v1/cars', carRoutes);
 app.get("/ping", async (_req: Request, res: Response) => {
      res.json({
 
-          message: "hello from Martinfdsafdfdsafdsa "
+          message: "hello from Martin"
 
      });
 
@@ -64,6 +64,8 @@ app.get('/fun', async (_req: Request, res: Response) => {
      });
 
 });
+
+
 
 
 
