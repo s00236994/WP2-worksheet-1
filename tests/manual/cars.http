@@ -9,8 +9,8 @@ x-api-key: blahblah
 
 {
   "make": "Hyundai",
-   "model": "IX35",
-   "year": 2013
+   "model": "i20",
+   "year": 2019
    
 }
 
@@ -27,13 +27,13 @@ x-api-key: blahblah
 
 
 ###
-GET  {{endpoint}}/sillycarID HTTP/3.0
+GET  {{endpoint}}/6ac60159241cf83c6bee2bac HTTP/3.0
 content-type: application/json
 
 
 ###
 
-DELETE  {{endpoint}}/6abe80635adf8b30dc66e092 HTTP/3.0
+DELETE  {{endpoint}}/6ac60159241cf83c6bee2bac HTTP/3.0
 content-type: application/json
 
 ###

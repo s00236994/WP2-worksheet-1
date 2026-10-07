@@ -1,17 +1,12 @@
 import express, { Application, Request, Response } from "express";
 import carRoutes from './routes/cars';
-import { env } from "./config/env";
-import { connectDB } from "./config/database";
 import { loggingMiddleware } from './middleware/logging.middleware';
 import { swaggerSpec } from "./config/swagger";
 import swaggerUi from "swagger-ui-express";
 
 
-const PORT = env.port
 
-
-
-const app: Application = express();
+export const app: Application = express();
 
 app.use(loggingMiddleware);
 
@@ -30,7 +25,7 @@ app.use('/api/v1/cars', carRoutes);
 app.get("/ping", async (_req: Request, res: Response) => {
      res.json({
 
-          message: "hello from Martinfdsafdfdsafdsa "
+          message: "hello from Martin"
 
      });
 
@@ -74,16 +69,10 @@ app.get('/fun', async (_req: Request, res: Response) => {
 
 
 
-const startServer = async () => {
-     await connectDB();
 
-     app.listen(PORT, () => {
-          console.log(`Server running on port ${PORT}`);
-     });
 
-};
 
-startServer();
+
 
 
 
