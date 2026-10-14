@@ -3,6 +3,7 @@ import carRoutes from './routes/cars';
 import { loggingMiddleware } from './middleware/logging.middleware';
 import { swaggerSpec } from "./config/swagger";
 import swaggerUi from "swagger-ui-express";
+import { errorHandler } from "./middleware/error.middleware";
 
 
 
@@ -74,6 +75,8 @@ app.get("/pung", async (_req : Request, res: Response) => {
     console.log("Received request to /pung");
      throw new Error("Simulated error in /pung route");
 });
+
+app.use(errorHandler);
 
 
 

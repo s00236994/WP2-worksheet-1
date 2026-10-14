@@ -33,7 +33,7 @@ content-type: application/json
 
 ###
 
-DELETE  {{endpoint}}/6acf86d4087a24b24b57850a HTTP/3.0
+DELETE  {{endpoint}}/6acf88de19fe3f6dbfaaab96 HTTP/3.0
 content-type: application/json
 
 ###
