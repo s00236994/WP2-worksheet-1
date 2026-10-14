@@ -14,3 +14,9 @@ export class NotFoundError extends AppError {
     super(`${resource} not found`, 404);
   }
 }
+
+export class ValidationError extends AppError {
+  constructor(message: string, public details?: unknown) {
+    super(message, 400);
+  } 
+}

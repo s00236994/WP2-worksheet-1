@@ -1,10 +1,19 @@
 import { NextFunction, Request, Response } from "express";
-import { AppError } from "../utils/apperrors";
+import { AppError, ValidationError } from "../utils/apperrors";
 
 export const errorHandler = (err: Error, _req: Request, res: Response, _next: NextFunction) => {
   
 
   console.error(`Custom middleware: ${err}`);
+
+   if (err instanceof ValidationError) {
+    res.status(400).json({
+      success: false,
+      message: err.message,
+      errors: err.details
+    });
+    return;
+  }
 
     if (err instanceof AppError) {
  
