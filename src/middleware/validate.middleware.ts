@@ -2,13 +2,17 @@ import { z } from 'zod';
 import { Request, Response, NextFunction } from 'express';
 import { ValidationError } from '../utils/apperrors';
 
-export const validate = (schema: z.ZodObject<any>)   => (
+export const validate = (schema: z.ZodObject<any>) => (
   req: Request,
   _res: Response,
   next: NextFunction
-) : void => {
+): void => {
 
-  const validation = schema.safeParse(req.body);
+  const validation = schema.safeParse({
+      body: req.body,
+      params: req.params,
+      query: req.query
+    });
 
   if (!validation.success) {
 
@@ -17,8 +21,7 @@ export const validate = (schema: z.ZodObject<any>)   => (
     return;
   }
 
-  req.body = validation.data
+  req.body = validation.data.body;
 
   next();
 };
-

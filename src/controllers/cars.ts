@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { CarService } from '../services/carService';
-import { createCarZSchema } from '../models/cars';
 
 const carService = new CarService();
 
@@ -82,21 +81,14 @@ export class CarController {
    *       500:
    *         description: Internal server error
    */
-  createCar = async (req: Request, res: Response): Promise<void> => {
-    try {
-      const validation = createCarZSchema.safeParse(req.body);
-
-      if (!validation.success) {
-        res.status(400).json({ message: 'Invalid car data', errors: validation.error.issues });
-        return;
-      }
-
-      const newCar = await carService.createCar(req.body);
-      res.status(201).json(newCar);
-    } catch (error) {
-      res.status(500).json({ message: 'Error inserting into MongoDB', error });
-    }
-  };
+ createCar = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const newCar = await carService.createCar(req.body);
+    res.status(201).json(newCar);
+  } catch (error) {
+    res.status(500).json({ message: 'Error inserting into MongoDB', error });
+  }
+};
 
 
   updateCar = async (req: Request, res: Response): Promise<void> => {
