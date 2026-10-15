@@ -4,10 +4,13 @@ import { loggingMiddleware } from './middleware/logging.middleware';
 import { swaggerSpec } from "./config/swagger";
 import swaggerUi from "swagger-ui-express";
 import { errorHandler } from "./middleware/error.middleware";
+import cors from "cors";
 
 
 
 export const app: Application = express();
+
+app.use(cors());
 
 app.use(loggingMiddleware);
 
