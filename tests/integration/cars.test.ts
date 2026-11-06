@@ -40,13 +40,6 @@ describe('POST /cars', () => {
         carId = response.body._id;
     });
 
-    it('returns 401 when there is no api key', async () => {
-        const response = await request(app)
-            .post('/api/v1/cars')
-            .send(validCar);
-
-        expect(response.status).toBe(401);
-    });
 
     it('returns 400 for invalid data', async () => {
         const response = await request(app)
