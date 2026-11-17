@@ -5,7 +5,7 @@ content-type: application/json
 
 {
     "name": "fdfff",
-    "email": "hi@example.com",
+    "email": "mate@example.com",
     "password": "hvfjahgierhgwngh"
 }
 
@@ -16,7 +16,7 @@ POST {{endpoint}}/auth/login HTTP/1.1
 content-type: application/json
 
 {
-    "email": "hi@example.com",
+    "email": "mate@example.com",
     "password": "hvfjahgierhgwngh"
 }
 ###
