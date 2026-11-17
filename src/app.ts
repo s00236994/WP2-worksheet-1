@@ -5,8 +5,7 @@ import { swaggerSpec } from "./config/swagger";
 import swaggerUi from "swagger-ui-express";
 import { errorHandler } from "./middleware/error.middleware";
 import cors from "cors";
-
-
+import authRoutes from './routes/auth';
 
 export const app: Application = express();
 
@@ -25,7 +24,7 @@ swaggerUi.serve,
 swaggerUi.setup(swaggerSpec)
 );
 
-
+app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/cars', carRoutes);
 
 app.get("/ping", async (_req: Request, res: Response) => {

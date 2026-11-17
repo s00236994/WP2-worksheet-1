@@ -55,7 +55,7 @@ export const loginZSchema = z.object({
 const userSchema = new Schema<IUser>(
   {
     name: { type: String, required: true },
-    email: { type: String, required: true, lowercase: true, trim: true },
+    email: { type: String, required: true, lowercase: true, trim: true, unique: true },
     passwordHash: { type: String, required: true },
   },
   { timestamps: true }
