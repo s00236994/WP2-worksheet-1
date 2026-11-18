@@ -38,7 +38,7 @@ export class AuthController {
         res.status(201).json(user);
     };
 
-    
+
     /**
  * @openapi
  * /auth/login:
@@ -69,6 +69,29 @@ export class AuthController {
         const token = await authService.login(email, password);
 
         res.status(200).json({ token });
+    };
+
+
+    /**
+  * @openapi
+  * /auth/me:
+  *   get:
+  *     summary: Get the logged-in user
+  *     tags:
+  *       - Auth
+  *     responses:
+  *       200:
+  *         description: The user the token belongs to
+  *       401:
+  *         description: Missing, invalid or expired token
+  */
+
+    me = async (req: Request, res: Response): Promise<void> => {
+
+        // req.user was set by authenticateJWT
+        const user = await authService.getUserById(req.user!.sub);
+
+        res.status(200).json(user);
     };
 
 }

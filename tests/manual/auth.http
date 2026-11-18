@@ -31,3 +31,7 @@ Authorization: Bearer {{accessToken}}
  
 GET {{endpoint}}/auth/me HTTP/1.1
 Authorization: Bearer {{accessToken}}
+
+###
+GET {{endpoint}}/auth/me HTTP/1.1
+###
