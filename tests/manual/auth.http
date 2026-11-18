@@ -4,9 +4,9 @@ POST {{endpoint}}/auth/register HTTP/1.1
 content-type: application/json
 
 {
-    "name": "fdfff",
-    "email": "mate@example.com",
-    "password": "hvfjahgierhgwngh"
+    "name": "joe",
+    "email": "joe@bloggs.com",
+    "password": "pasadfdfdfsdf"
 }
 
 ###
@@ -16,22 +16,23 @@ POST {{endpoint}}/auth/login HTTP/1.1
 content-type: application/json
 
 {
-    "email": "mate@example.com",
-    "password": "hvfjahgierhgwngh"
+    "email": "joe@bloggs.com",
+    "password": "pasadfdfdfsdf"
 }
 ###
 
 @accessToken = {{login.response.body.token}}
 
-DELETE {{endpoint}}/cars/6aedc48a51ec1bee56938372 HTTP/1.1
+DELETE {{endpoint}}/cars/6ab66fe2ff930eb9e04ca665 HTTP/1.1
 content-type: application/json
 Authorization: Bearer {{accessToken}}
-
+ 
 ###
  
 GET {{endpoint}}/auth/me HTTP/1.1
 Authorization: Bearer {{accessToken}}
 
 ###
+ 
 GET {{endpoint}}/auth/me HTTP/1.1
-###
+Authorization: Bearer {{accessToken}}
