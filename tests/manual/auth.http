@@ -1,0 +1,38 @@
+@endpoint = http://localhost:3000/api/v1
+
+POST {{endpoint}}/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "joe",
+    "email": "joe@bloggs.com",
+    "password": "pasadfdfdfsdf"
+}
+
+###
+
+# @name login
+POST {{endpoint}}/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "joe@bloggs.com",
+    "password": "pasadfdfdfsdf"
+}
+###
+
+@accessToken = {{login.response.body.token}}
+
+DELETE {{endpoint}}/cars/6ab66fe2ff930eb9e04ca665 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+ 
+###
+ 
+GET {{endpoint}}/auth/me HTTP/1.1
+Authorization: Bearer {{accessToken}}
+
+###
+ 
+GET {{endpoint}}/auth/me HTTP/1.1
+Authorization: Bearer {{accessToken}}
