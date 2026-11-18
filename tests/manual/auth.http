@@ -23,10 +23,10 @@ content-type: application/json
 
 @accessToken = {{login.response.body.token}}
 
-DELETE {{endpoint}}/cars/66f1428fd79bf0c5ae9988 HTTP/1.1
+DELETE {{endpoint}}/cars/6aedc48a51ec1bee56938372 HTTP/1.1
 content-type: application/json
 Authorization: Bearer {{accessToken}}
- 
+
 ###
  
 GET {{endpoint}}/auth/me HTTP/1.1
